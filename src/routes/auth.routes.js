@@ -27,7 +27,16 @@ authRouter.post("/register", registerValidator, register);
  * @body {username , email, password }
  */
 
-authRouter.post("/register", loginValidator, login);
+authRouter.post("/login", loginValidator, login);
+
+/**
+ * @route POST /api/auth/get-me
+ * @desc verify user's email address
+ * @access Public
+ * @body { token }
+ */
+// authRouter.get('/get-me')
+
 /**
  * @route GET /api/auth/verify-user
  * @desc Verify user email address

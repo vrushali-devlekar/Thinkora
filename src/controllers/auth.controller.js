@@ -87,12 +87,12 @@ export async function verifyEmail(req, res) {
   <p>Your email has been verified. You can now login to your account.</p>
   <a href="http://localhost:3000/login">Go to Login</a>
   `;
-    return (res.send = html);
+    return res.send(html);
   } catch (error) {
     return res.status(400).json({
       message: "Invalid or expired token",
       success: false,
-      err: err.message,
+      error: error.message,
     });
   }
 }
@@ -154,4 +154,15 @@ export async function login(req, res) {
       email: user.email,
     },
   });
+}
+
+/**
+ * @desc get current logged in users details
+ * @route POST /api/auth/get-me
+ * @access Private
+ */
+
+export async function getMe(req,res){
+  const userId = req.user.id;
+  
 }
