@@ -4,10 +4,12 @@ import {
   registerValidator,
 } from "../validators/auth.validator.js";
 import {
+  getMe,
   login,
   register,
   verifyEmail,
 } from "../controllers/auth.controller.js";
+import { authUser } from "../middleware/auth.middleware.js";
 
 const authRouter = Router();
 
@@ -35,7 +37,7 @@ authRouter.post("/login", loginValidator, login);
  * @access Public
  * @body { token }
  */
-// authRouter.get('/get-me')
+authRouter.get("/get-me", authUser,getMe);
 
 /**
  * @route GET /api/auth/verify-user
