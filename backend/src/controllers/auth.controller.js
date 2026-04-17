@@ -126,13 +126,14 @@ export async function login(req, res) {
     });
   }
 
-  if (!user.verified) {
-    return res.status(400).json({
-      message: "Please verify your email before logged in",
-      success: false,
-      err: "Email not verified",
-    });
-  }
+  // Temporarily disabled for development
+  // if (!user.verified) {
+  //   return res.status(400).json({
+  //     message: "Please verify your email before logged in",
+  //     success: false,
+  //     err: "Email not verified",
+  //   });
+  // }
 
   const token = jwt.sign(
     {
